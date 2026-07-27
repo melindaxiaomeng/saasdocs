@@ -11,13 +11,11 @@
 <body>
   <div id="app">📚 文档加载中…</div>
 
-  <!-- Docsify 核心与插件：全部本地托管，部署后不依赖任何外部 CDN，访问稳定 -->
-  <script src="vendor/docsify/lib/docsify.min.js"></script>
-  <script src="vendor/docsify/lib/plugins/search.min.js"></script>
-  <script src="vendor/docsify/lib/plugins/zoom-image.min.js"></script>
-  <script src="vendor/docsify/lib/plugins/copy-code.min.js"></script>
-  <script src="vendor/docsify/lib/plugins/pagination.min.js"></script>
-
+  <!--
+    关键顺序：必须先定义 window.$docsify，再加载 docsify 核心与插件。
+    这些插件在加载时会读取 $docsify.plugins，若配置未定义会报错，
+    若多个插件都用覆盖式注册也会互相冲掉。
+  -->
   <script>
     window.$docsify = {
       name: 'SaaS New',
@@ -30,8 +28,9 @@
       auto2top: true,
       notFoundPage: true,
 
-      // 全文搜索（默认索引首页 + 已访问页面）
+      // 全文搜索（paths:'auto' 自动索引全部文档，无需逐个访问）
       search: {
+        paths: 'auto',
         maxAge: 86400000,
         placeholder: '🔍 搜索文档',
         noData: '找不到相关结果',
@@ -77,5 +76,12 @@
       ]
     };
   </script>
+
+  <!-- Docsify 核心与插件：全部本地托管，部署后不依赖任何外部 CDN，访问稳定 -->
+  <script src="vendor/docsify/lib/docsify.min.js"></script>
+  <script src="vendor/docsify/lib/plugins/search.min.js"></script>
+  <script src="vendor/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="vendor/docsify/lib/plugins/copy-code.min.js"></script>
+  <script src="vendor/docsify/lib/plugins/pagination.min.js"></script>
 </body>
 </html>

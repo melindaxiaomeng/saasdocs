@@ -1,5 +1,7 @@
 <!-- _sidebar -->
 
+<!-- search -->
+
 * [SaaS New 首页](/)
 * [Partner Hub - 广告主页面接口文档](API_Advertiser_Interface.md)
 * [SaaS Admin API 完整文档](API_Complete_v1.md)
