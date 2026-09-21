@@ -23,6 +23,17 @@
       homepage: 'README.md',
       loadSidebar: true,
       loadNavbar: true,
+
+      // ⚠️ 必须保留：Cloudflare Pages 对「不存在的路径」返回的是 200 + 首页外壳（不是 404）。
+      // Docsify 默认按当前目录找侧边栏（在 /docs/xxx 时去取 /docs/_sidebar.md），
+      // 只有该请求 404 才回退到根 _sidebar.md；Pages 却回了 200，于是它把首页外壳
+      // 当成侧边栏渲染，左侧目录会永远卡在「📚 文档加载中…」。
+      // 下面两条正则把「任意子目录下的 _sidebar/_navbar」都指回根目录那一份，
+      // 一份侧边栏管全站；以后新增子目录也不用再改这里。
+      alias: {
+        '/.*/_sidebar\\.md': '/_sidebar.md',
+        '/.*/_navbar\\.md': '/_navbar.md'
+      },
       subMaxLevel: 3,
       maxLevel: 4,
       auto2top: true,
