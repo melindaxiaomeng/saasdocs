@@ -6,7 +6,7 @@
 
 **运营与用户操作手册**
 
-* [模块一 · 基础配置与账户入驻合规](docs/运营与用户操作手册_模块一_基础配置与账户入驻合规.md)
+* [前置篇 · 基础配置与账户入驻合规](docs/运营与用户操作手册_前置篇_基础配置与账户入驻合规.md)
 * [模块一 · PartnerHub 客户账户配置](docs/运营与用户操作手册_模块一_PartnerHub客户账户配置.md)
 * [模块二 · Campaign Center](docs/运营与用户操作手册_模块二_Campaign_Center.md)
 * [模块三 · Partner Control](docs/运营与用户操作手册_模块三_Partner_Control.md)
