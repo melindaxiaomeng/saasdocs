@@ -5,6 +5,10 @@
 * [🔒 内部文档首页](README.md)
 * <a href="/" data-nosearch>← 返回公开文档站</a>
 
+**产品与技术文档**
+
+* [网盟 SaaS 平台 - 产品文档（含技术栈 / 路由 / API 配置）](平台产品文档.md)
+
 **接口文档**
 
 * [Partner Hub - 广告主页面接口文档](API_Advertiser_Interface.md)
