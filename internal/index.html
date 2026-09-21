@@ -58,6 +58,20 @@
               }
             } catch (e) {}
           });
+        },
+        function (hook) {
+          // 返回公开站的链接走整页跳转，避免被 Docsify 内部路由接管。
+          hook.doneEach(function () {
+            var links = document.querySelectorAll('a[href="/"]');
+            Array.prototype.forEach.call(links, function (a) {
+              if (a.dataset.fullNav) return;
+              a.dataset.fullNav = '1';
+              a.addEventListener('click', function (e) {
+                e.stopImmediatePropagation();
+                window.location.href = '/';
+              }, true);
+            });
+          });
         }
       ]
     };

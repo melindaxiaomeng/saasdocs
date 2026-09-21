@@ -72,6 +72,21 @@
               }
             } catch (e) {}
           });
+        },
+        function (hook) {
+          // 指向 internal/ 的链接必须整页跳转（而非 Docsify 内部 XHR 加载），
+          // 否则会由 Cloudflare Access 拦截并渲染出登录页 HTML。
+          hook.doneEach(function () {
+            var links = document.querySelectorAll('a[href^="/internal"]');
+            Array.prototype.forEach.call(links, function (a) {
+              if (a.dataset.fullNav) return;
+              a.dataset.fullNav = '1';
+              a.addEventListener('click', function (e) {
+                e.stopImmediatePropagation();
+                window.location.href = a.getAttribute('href');
+              }, true);
+            });
+          });
         }
       ]
     };
